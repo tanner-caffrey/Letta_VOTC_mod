@@ -1,0 +1,34 @@
+﻿# Create a Letta agent for a character
+create_letta_agent_interaction = {
+	category = interaction_category_friendly
+	use_diplomatic_range = no
+	ignores_pending_interaction_block = yes
+	interface_priority = 199
+	common_interaction = yes
+	desc = create_letta_agent_interaction.desc
+
+	ai_will_do = {
+		base = 0
+	}
+
+	is_valid = {
+		scope:actor = {
+			is_available_adult = yes
+		}
+		scope:recipient = {
+			is_available_adult = yes
+		}
+	}
+
+	on_accept = {
+		# Log agent data to debug log
+		debug_log = "VOTC:AGENT_CREATE/;/[scope:recipient.GetID]/;/[scope:recipient.GetTitledFirstName]"
+
+		# Trigger hidden event to copy to clipboard
+		scope:actor = {
+			trigger_event = talk_event.9004
+		}
+	}
+
+	auto_accept = yes
+}

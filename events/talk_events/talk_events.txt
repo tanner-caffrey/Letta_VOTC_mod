@@ -151,7 +151,72 @@ talk_event.9003 = {
         gui = "event_window_widget_talk_clear"
         container = "custom_widgets_container"
     }
-	
 
+
+}
+
+## Letta Integration Events (9004-9007)
+
+# Create Letta agent for a character
+talk_event.9004 = {
+	type = character_event
+	title = "aha"
+	window = fullscreen_event
+	theme = clipboard_transfer_event_theme
+	desc = talk_event.9004.desc
+
+	immediate = {
+		set_global_variable = {
+			name = letta_agent_target
+			value = scope:recipient
+		}
+	}
+
+	widget = {
+        gui = "event_window_widget_letta_agent_create"
+        container = "custom_widgets_container"
+    }
+}
+
+# Send game event to Letta agents
+talk_event.9005 = {
+	type = character_event
+	title = "aha"
+	window = fullscreen_event
+	theme = clipboard_transfer_event_theme
+	desc = talk_event.9005.desc
+
+	widget = {
+        gui = "event_window_widget_letta_event"
+        container = "custom_widgets_container"
+    }
+}
+
+# Notify VOTC of save load
+talk_event.9006 = {
+	type = character_event
+	title = "aha"
+	window = fullscreen_event
+	theme = clipboard_transfer_event_theme
+	desc = talk_event.9006.desc
+
+	widget = {
+        gui = "event_window_widget_letta_save_load"
+        container = "custom_widgets_container"
+    }
+}
+
+# Notify VOTC of save close
+talk_event.9007 = {
+	type = character_event
+	title = "aha"
+	window = fullscreen_event
+	theme = clipboard_transfer_event_theme
+	desc = talk_event.9007.desc
+
+	widget = {
+        gui = "event_window_widget_letta_save_close"
+        container = "custom_widgets_container"
+    }
 }
 

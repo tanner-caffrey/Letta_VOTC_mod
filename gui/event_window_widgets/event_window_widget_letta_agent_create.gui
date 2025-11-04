@@ -1,0 +1,17 @@
+hbox = {
+	name = "event_window_widget_letta_agent_create"
+	layoutpolicy_horizontal = expanding
+	margin = { 10 0 }
+
+	state = {
+        name = widget_show
+        trigger_on_create = yes
+
+		on_start = "[EventWindowData.CopyToClipboard]"
+
+		on_finish = "[GetVariableSystem.Clear('letta_agent_target')]"
+	}
+
+	expand = {}
+
+}

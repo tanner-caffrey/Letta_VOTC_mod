@@ -1,0 +1,76 @@
+﻿# Send a game event to Letta agents
+# Scope: character (the character who should receive the event)
+# Parameters:
+#   event_type: string - type of event (e.g., "birth", "death", "war_started")
+#   event_desc: string - description of the event
+send_letta_event = {
+	set_global_variable = {
+		name = letta_event_character
+		value = root
+	}
+	set_global_variable = {
+		name = letta_event_type
+		value = flag:$event_type$
+	}
+	set_global_variable = {
+		name = letta_event_desc
+		value = flag:$event_desc$
+	}
+
+	# Log to debug.log
+	debug_log = "VOTC:EVENT/;/[root.GetID]/;/$event_type$/;/$event_desc$"
+
+	# Trigger clipboard copy event
+	root = {
+		trigger_event = talk_event.9005
+	}
+}
+
+# Notify VOTC that a save has been loaded
+# Scope: any (typically called from on_game_start_after_lobby)
+# Parameters:
+#   save_id: string - unique identifier for this save
+#   save_name: string (optional) - display name of the save
+notify_letta_save_load = {
+	set_global_variable = {
+		name = letta_save_id
+		value = flag:$save_id$
+	}
+
+	if = {
+		limit = {
+			always = "$save_name$" != ""
+		}
+		set_global_variable = {
+			name = letta_save_name
+			value = flag:$save_name$
+		}
+	}
+
+	# Log to debug.log
+	debug_log = "VOTC:SAVE_LOAD/;/$save_id$/;/$save_name$"
+
+	# Trigger clipboard copy event
+	GetPlayer = {
+		trigger_event = talk_event.9006
+	}
+}
+
+# Notify VOTC that a save is closing (game exiting or loading different save)
+# Scope: any
+# Parameters:
+#   save_id: string - unique identifier for this save
+notify_letta_save_close = {
+	set_global_variable = {
+		name = letta_save_id
+		value = flag:$save_id$
+	}
+
+	# Log to debug.log
+	debug_log = "VOTC:SAVE_CLOSE/;/$save_id$"
+
+	# Trigger clipboard copy event
+	GetPlayer = {
+		trigger_event = talk_event.9007
+	}
+}

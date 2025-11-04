@@ -1,0 +1,17 @@
+hbox = {
+	name = "event_window_widget_letta_save_close"
+	layoutpolicy_horizontal = expanding
+	margin = { 10 0 }
+
+	state = {
+        name = widget_show
+        trigger_on_create = yes
+
+		on_start = "[EventWindowData.CopyToClipboard]"
+
+		on_finish = "[GetVariableSystem.Clear('letta_save_id')]"
+	}
+
+	expand = {}
+
+}
