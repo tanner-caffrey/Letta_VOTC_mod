@@ -21,7 +21,22 @@ create_letta_agent_interaction = {
 	}
 
 	on_accept = {
-		# Log agent data to debug log
+		# Set global variables for character data logging
+		set_global_variable = {
+			name = talk_first_scope
+			value = scope:actor
+		}
+		set_global_variable = {
+			name = talk_second_scope
+			value = scope:recipient
+		}
+
+		# Log full character data to debug log (same as VOTC:IN)
+		scope:recipient = {
+			log_gamedata = {}
+		}
+
+		# Log agent creation marker
 		debug_log = "VOTC:AGENT_CREATE/;/[scope:recipient.GetID]/;/[scope:recipient.GetTitledFirstName]"
 
 		# Trigger hidden event to copy to clipboard
