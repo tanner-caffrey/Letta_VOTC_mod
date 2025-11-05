@@ -23,7 +23,7 @@ create_letta_agent_interaction = {
 	on_accept = {
 		# Log agent creation marker FIRST to confirm interaction fires
 		debug_log = "LETTA_INTERACTION_FIRED"
-		debug_log = "VOTC:AGENT_CREATE/;/[recipient.GetID]/;/[recipient.GetTitledFirstName]"
+		debug_log = "VOTC:AGENT_CREATE/;/[recipient.GetID]/;/[recipient.GetTitledFirstNameNoTooltip]"
 
 		# Set global variables for character data logging
 		set_global_variable = {

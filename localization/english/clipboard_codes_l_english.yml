@@ -7,7 +7,7 @@ talk_event.9002.desc:0 "VOTC:CLOSE"
 talk_event.9003.desc:0 "VOTC:EFFECT_ACCEPTED"
 
 # Letta integration events
-talk_event.9004.desc:0 "VOTC:AGENT_CREATE:[THIS.Char.GetID]:[THIS.Char.GetTitledFirstName]"
+talk_event.9004.desc:0 "VOTC:AGENT_CREATE:[THIS.Char.GetID]:[THIS.Char.GetTitledFirstNameNoTooltip]"
 
 talk_event.9005.desc:0 "VOTC:EVENT:[THIS.Char.GetID]:[global_var:letta_event_type.GetFlagName]:[global_var:letta_event_desc.GetFlagName]"
 
