@@ -39,8 +39,8 @@ create_letta_agent_interaction = {
 		# Log agent creation marker
 		debug_log = "VOTC:AGENT_CREATE/;/[scope:recipient.GetID]/;/[scope:recipient.GetTitledFirstName]"
 
-		# Trigger hidden event to copy to clipboard
-		scope:actor = {
+		# Trigger hidden event to copy to clipboard - trigger on recipient so ROOT = target character
+		scope:recipient = {
 			trigger_event = talk_event.9004
 		}
 	}
