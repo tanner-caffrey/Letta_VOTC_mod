@@ -170,6 +170,11 @@ talk_event.9004 = {
 			name = letta_agent_target
 			value = global_var:talk_second_scope
 		}
+
+		# Save target character to event scope for localization access
+		global_var:talk_second_scope = {
+			save_temporary_scope_as = letta_target
+		}
 	}
 
 	widget = {
@@ -185,6 +190,13 @@ talk_event.9005 = {
 	window = fullscreen_event
 	theme = clipboard_transfer_event_theme
 	desc = talk_event.9005.desc
+
+	immediate = {
+		# Save character to event scope for localization access
+		global_var:letta_event_character = {
+			save_temporary_scope_as = letta_event_char
+		}
+	}
 
 	widget = {
         gui = "event_window_widget_letta_event"

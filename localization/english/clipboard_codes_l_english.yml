@@ -7,13 +7,13 @@ talk_event.9002.desc:0 "VOTC:CLOSE"
 talk_event.9003.desc:0 "VOTC:EFFECT_ACCEPTED"
 
 # Letta integration events
-talk_event.9004.desc:0 "VOTC:AGENT_CREATE:[GetGlobalVariable('letta_agent_target').GetCharacter.GetID]:[GetGlobalVariable('letta_agent_target').GetCharacter.GetTitledFirstName]"
+talk_event.9004.desc:0 "VOTC:AGENT_CREATE:[scope:letta_target.GetID]:[scope:letta_target.GetTitledFirstName]"
 
-talk_event.9005.desc:0 "VOTC:EVENT:[GetGlobalVariable('letta_event_character').GetCharacter.GetID]:[GetGlobalVariable('letta_event_type').GetFlagName]:[GetGlobalVariable('letta_event_desc').GetFlagName]"
+talk_event.9005.desc:0 "VOTC:EVENT:[scope:letta_event_char.GetID]:[global_var:letta_event_type.GetFlagName]:[global_var:letta_event_desc.GetFlagName]"
 
-talk_event.9006.desc:0 "VOTC:SAVE_LOAD:[GetGlobalVariable('letta_save_id').GetFlagName]:[GetGlobalVariable('letta_save_name').GetFlagName]"
+talk_event.9006.desc:0 "VOTC:SAVE_LOAD:[global_var:letta_save_id.GetFlagName]:[global_var:letta_save_name.GetFlagName]"
 
-talk_event.9007.desc:0 "VOTC:SAVE_CLOSE:[GetGlobalVariable('letta_save_id').GetFlagName]"
+talk_event.9007.desc:0 "VOTC:SAVE_CLOSE:[global_var:letta_save_id.GetFlagName]"
 
 ##testing
 
