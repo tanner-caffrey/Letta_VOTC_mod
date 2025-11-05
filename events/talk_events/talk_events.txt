@@ -160,22 +160,42 @@ talk_event.9003 = {
 # Create Letta agent for a character
 talk_event.9004 = {
 	type = character_event
-	title = "aha"
-	window = fullscreen_event
-	theme = clipboard_transfer_event_theme
-	desc = talk_event.9004.desc
+	hidden = yes
 
 	immediate = {
 		set_global_variable = {
 			name = letta_agent_target
 			value = global_var:talk_second_scope
 		}
+
+		# Copy to clipboard using a simple approach
+		# Since hidden events can't use widgets, we'll just rely on debug_log
+		# The interaction already logs VOTC:AGENT_CREATE to debug.log
+		# Now we need to manually copy to clipboard via a different method
+
+		# Trigger a non-hidden event that can use the widget
+		trigger_event = talk_event.9004_widget
 	}
+}
+
+# Widget event for clipboard copy
+talk_event.9004_widget = {
+	type = character_event
+	title = "aha"
+	window = fullscreen_event
+	theme = clipboard_transfer_event_theme
+	desc = talk_event.9004.desc
+
+	immediate = {}
 
 	widget = {
         gui = "event_window_widget_letta_agent_create"
         container = "custom_widgets_container"
     }
+
+	option = {
+		name = "OK"
+	}
 }
 
 # Send game event to Letta agents
