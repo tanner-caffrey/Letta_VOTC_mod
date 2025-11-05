@@ -20,7 +20,7 @@ Designates a character to have a Letta agent created for them. Once created, con
 
 **Usage:** Right-click on a character → "Create Letta Agent"
 
-**Clipboard Event:** `VOTC:AGENT_CREATE/;/[character_id]/;/[character_name]`
+**Clipboard Event:** `VOTC:AGENT_CREATE:[character_id]:[character_name]`
 
 ## New Scripted Effects
 
@@ -34,7 +34,7 @@ Sends a game event to a Letta agent. The event is queued and batched for efficie
 - `event_type` (string): Type of event (e.g., "birth", "death", "war_started", "title_gained")
 - `event_desc` (string): Human-readable description of what happened
 
-**Clipboard Event:** `VOTC:EVENT/;/[character_id]/;/[event_type]/;/[event_description]`
+**Clipboard Event:** `VOTC:EVENT:[character_id]:[event_type]:[event_description]`
 
 **Example Usage:**
 
@@ -82,7 +82,7 @@ Notifies VOTC that a save has been loaded. Should be called from `on_game_start_
 - `save_id` (string): Unique identifier for this save (use save file name or generate hash)
 - `save_name` (string, optional): Display name for the save
 
-**Clipboard Event:** `VOTC:SAVE_LOAD/;/[save_id]/;/[save_name]`
+**Clipboard Event:** `VOTC:SAVE_LOAD:[save_id]:[save_name]`
 
 **Example Usage:**
 
@@ -114,7 +114,7 @@ Notifies VOTC that a save is closing (game exit or loading different save). Trig
 **Parameters:**
 - `save_id` (string): Unique identifier for this save
 
-**Clipboard Event:** `VOTC:SAVE_CLOSE/;/[save_id]`
+**Clipboard Event:** `VOTC:SAVE_CLOSE:[save_id]`
 
 **Example Usage:**
 
@@ -183,8 +183,9 @@ To fully implement Letta integration in your mod:
 
 ## Technical Notes
 
-- All clipboard events use the format: `VOTC:EVENT_TYPE/;/param1/;/param2/;/...`
-- The `/;/` delimiter is used to separate parameters
+- All clipboard events use the format: `VOTC:EVENT_TYPE:param1:param2:...`
+- The `:` (colon) delimiter is used to separate parameters
+- **Note:** Debug log entries use `/;/` delimiter, but clipboard events use `:` delimiter
 - Events are batched and flushed based on:
   - Batch size (default: 10 events)
   - Time timeout (default: 5 minutes)
@@ -196,9 +197,9 @@ To fully implement Letta integration in your mod:
 To verify events are being sent:
 
 1. Enable CK3 debug logging
-2. Check `logs/debug.log` for lines starting with `VOTC:AGENT_CREATE`, `VOTC:EVENT`, etc.
+2. Check `logs/debug.log` for lines starting with `VOTC:AGENT_CREATE`, `VOTC:EVENT`, etc. (these use `/;/` delimiter)
 3. Check VOTC application logs at `~/.config/Electron/votc_data/logs/debug.log`
-4. Verify clipboard contains the expected event data after triggering
+4. Verify clipboard contains the expected event data after triggering (clipboard uses `:` delimiter)
 
 ## Example: Complete Birth Event Integration
 
