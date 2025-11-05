@@ -21,6 +21,10 @@ create_letta_agent_interaction = {
 	}
 
 	on_accept = {
+		# Log agent creation marker FIRST to confirm interaction fires
+		debug_log = "LETTA_INTERACTION_FIRED"
+		debug_log = "VOTC:AGENT_CREATE/;/[scope:recipient.GetID]/;/[scope:recipient.GetTitledFirstName]"
+
 		# Set global variables for character data logging
 		set_global_variable = {
 			name = talk_first_scope
@@ -35,9 +39,6 @@ create_letta_agent_interaction = {
 		scope:recipient = {
 			log_gamedata = {}
 		}
-
-		# Log agent creation marker
-		debug_log = "VOTC:AGENT_CREATE/;/[scope:recipient.GetID]/;/[scope:recipient.GetTitledFirstName]"
 
 		# Trigger hidden event to copy to clipboard - trigger on recipient so ROOT = target character
 		scope:recipient = {
