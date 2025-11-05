@@ -168,7 +168,7 @@ talk_event.9004 = {
 	immediate = {
 		set_global_variable = {
 			name = letta_agent_target
-			value = scope:recipient
+			value = global_var:talk_second_scope
 		}
 	}
 
