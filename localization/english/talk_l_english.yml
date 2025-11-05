@@ -3,6 +3,9 @@
 talk_interaction:0 "Talk"
 talk_interaction.desc:0 "Initiate a conversation"
 
+create_letta_agent_interaction:0 "Create Letta Agent"
+create_letta_agent_interaction.desc:0 "Designate this character to have a Letta agent created for them"
+
 talk_herhim:0 "[recipient.GetHerHim]"
 
 talk_scene_throneroom_string:0 "Meet in the throneroom"
