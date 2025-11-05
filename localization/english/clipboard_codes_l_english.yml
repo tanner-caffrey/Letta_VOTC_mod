@@ -7,13 +7,13 @@ talk_event.9002.desc:0 "VOTC:CLOSE"
 talk_event.9003.desc:0 "VOTC:EFFECT_ACCEPTED"
 
 # Letta integration events
-talk_event.9004.desc:0 "VOTC:AGENT_CREATE:[letta_agent_target.GetID]:[letta_agent_target.GetTitledFirstName]"
+talk_event.9004.desc:0 "VOTC:AGENT_CREATE/;/[letta_agent_target.GetID]/;/[letta_agent_target.GetTitledFirstName]"
 
-talk_event.9005.desc:0 "VOTC:EVENT:[letta_event_character.GetID]:[letta_event_type.GetFlagName]:[letta_event_desc.GetFlagName]"
+talk_event.9005.desc:0 "VOTC:EVENT/;/[letta_event_character.GetID]/;/[letta_event_type.GetFlagName]/;/[letta_event_desc.GetFlagName]"
 
-talk_event.9006.desc:0 "VOTC:SAVE_LOAD:[letta_save_id.GetFlagName]:[letta_save_name.GetFlagName]"
+talk_event.9006.desc:0 "VOTC:SAVE_LOAD/;/[letta_save_id.GetFlagName]/;/[letta_save_name.GetFlagName]"
 
-talk_event.9007.desc:0 "VOTC:SAVE_CLOSE:[letta_save_id.GetFlagName]"
+talk_event.9007.desc:0 "VOTC:SAVE_CLOSE/;/[letta_save_id.GetFlagName]"
 
 ##testing
 
